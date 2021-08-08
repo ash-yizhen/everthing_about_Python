@@ -45,3 +45,22 @@ ____.pivot_table(values=____, index=____, columns =_____, fill_value=0)
 #Summing with Pivot
 ____.pivot_table(values=____, index=____, columns =_____, fill_value=0, margins= True)
 
+------------------------------------------------------------------------------------------------------------
+#Slicing and Indexing dataframe
+#set a column as index & multiple indexes
+____.set_index("____")
+____.set_index(["____", "____"]) #multi-level indexes, hierarchical indexes
+#undo/remove the index 
+____.reset_index()
+#discard the index
+____.reset_index(drop = True)
+#index makes subsetting simpler, the elements in the brackets are from index column
+____.loc[["____", "____"]] #same as ____[____["____"].isin(["____", "____"])]
+#subset multi-level indexes data frame
+# subset outer level with a lsit
+____.loc[["outer index1", "outer index2"]]
+#subset inmer levels with a list of tuples \
+____.loc[[("outer index1", "inner index1"), ("outer index2", "inner index2")]]
+#sort index
+____.sort_index()
+____.sort_index(level=["index colmun1", "index column2"], ascending = [True, False])
