@@ -59,8 +59,23 @@ ____.loc[["____", "____"]] #same as ____[____["____"].isin(["____", "____"])]
 #subset multi-level indexes data frame
 # subset outer level with a lsit
 ____.loc[["outer index1", "outer index2"]]
-#subset inmer levels with a list of tuples \
+#subset inmer levels with a list of tuples 
 ____.loc[[("outer index1", "inner index1"), ("outer index2", "inner index2")]]
 #sort index
 ____.sort_index()
 ____.sort_index(level=["index colmun1", "index column2"], ascending = [True, False])
+
+---------------------------------------------------------------------------------------------------------------
+#Slicing and subsetting with loc. and iloc
+#1. Sort index before slicing 
+____.set_index(["____", "____"]).sort_index()
+#2. Slicing outer index level
+____.loc["____":"____"]   #the final value is included 
+#3. Slicing inner index level 
+____.loc[("outer1", "inner1"):("outer2", "inner2")]
+#Slicing columns 
+____.loc[:, "____":"____"]
+#Slicing both rows and colums
+____.loc[("outer1", "inner1"):("outer2", "inner2"), "____":"____"]
+____.iloc[2:5, 1:4]
+
