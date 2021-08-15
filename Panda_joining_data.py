@@ -5,3 +5,6 @@ ____=dataframe1.merge(dataframe2, on='column', suffixes = ('_ward', '_cen')) #di
 #One-to-one and one-to-many
 #One to one:Every row in thr left is related to only one row in the right 
 #One-to-many: Every row in thr left is related to many rows in the right 
+df1.merge(df2, on='')\
+  .merge(df3, on='')\
+  .merge(df4, on='')
