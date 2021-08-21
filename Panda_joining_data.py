@@ -8,3 +8,8 @@ ____=dataframe1.merge(dataframe2, on='column', suffixes = ('_ward', '_cen')) #di
 df1.merge(df2, on='')\
   .merge(df3, on='')\
   .merge(df4, on='')
+
+#Left Join -- returns all the rows from left table and only rows from right table that key collumns match 
+df3 = df1.merge(df1, on ='id', how='left')
+
+ 
