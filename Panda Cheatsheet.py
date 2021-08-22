@@ -151,6 +151,9 @@ ____.dropna()
 #replace missing values with another value such as 0
 ____.fillna(0)
 
+#return the values that is null 
+df2=df1[df1['____'].isnull()]
+
 -------------------------------------------------------------------------------------------------------------
 #create data frame from scratch 
 #create data frame from list of dictionary by rows 
