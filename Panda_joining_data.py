@@ -46,9 +46,9 @@ top_genres=genres[enres['grid'].isin(genres_tracks['grid'])] #returns values
 
 #Anti-join: retuns the left table, excluding the intersection; returns only columns from the left table and not the right 
 #step1: 
-genres_tracks=egnres.merge(top_tracks, on='gid', how ='left', indicator=True)
+genres_tracks=genres.merge(top_tracks, on='gid', how ='left', indicator=True)
 #Step2: 
-gid_list=genres_tracks.loc[genres_tracks['_merge']=='left_only', 'gid']
+gid_list=genres_tracks.loc[genres_tracks['_merge']=='left_only', 'gid'] #choose the rows that only shows in left table 
 #Step 3: 
 non_top_genres=genres[genres['gid'].isin(gid_list)]]
 
