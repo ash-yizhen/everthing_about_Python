@@ -12,4 +12,12 @@ df1.merge(df2, on='')\
 #Left Join -- returns all the rows from left table and only rows from right table that key collumns match 
 df3 = df1.merge(df1, on ='id', how='left')
 
+# Other join
+#Right join
+df3 = df1.merge(df1, how='right', left_on = '___', right_on='____') #left_on and right_on refers to which keys merge in from which tables
+#Outer join -- every row returns from both tables
+df3 = df1.merge(df1, on ='____', how='outer', suffixes=('____', '_____'))
+
+
+
  
