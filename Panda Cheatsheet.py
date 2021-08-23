@@ -40,6 +40,8 @@ ____.["____"].cummin()
 ____.["____"].cummax()
 ____.["____"].cumprod()
 
+df2 = df1.groupby().agg({'column':'aggfunction'}) #calculate based on columns
+
 
 #Counting: Dropping dupliacted elements, subset is the column name to remove duplicates from
 ____.drop_duplicates(subset ="_____")
