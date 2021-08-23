@@ -52,6 +52,25 @@ gid_list=genres_tracks.loc[genres_tracks['_merge']=='left_only', 'gid'] #choose 
 #Step 3: 
 non_top_genres=genres[genres['gid'].isin(gid_list)]]
 
+-------------------------------------------------------------------------------------------------
+#concatenation: link together in a chain or series
+#concatenate two tables vertically 
+#3 different tables; same column names; table variable names: inv_jan, inv_feb, inv_mar
+pd.concat([inv_jan, inv_feb, inv_mar], ignore_index=True) #to make sure index is continuing
+pd.concat([inv_jan, inv_feb, inv_mar], ignore_index=False, keys=['jan', 'feb', 'mar']) #make sure there will be multi indexes: with lable: jan, feb, mar
+
+#Concat table with different cloumn names
+pd.concat([inv_jan, inv_feb], sort=True) #include all columns from 2 tables
+pd.concat([inv_jan, inv_feb], join='inner')
+#.append() method: simplified version of the .concat() method; support ingore_index and sort argurments; DOES not support keys and join: join=outer
+inv_jan.append([inv_feb, inv_mar], ignore_index=True, sort=True)
+
+
+
+
+ 
+
+
 
 
 
