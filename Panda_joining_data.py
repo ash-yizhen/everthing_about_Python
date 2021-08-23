@@ -65,6 +65,33 @@ pd.concat([inv_jan, inv_feb], join='inner')
 #.append() method: simplified version of the .concat() method; support ingore_index and sort argurments; DOES not support keys and join: join=outer
 inv_jan.append([inv_feb, inv_mar], ignore_index=True, sort=True)
 
+#Verify integrity
+#when concatenating data: duplicate records possibly unintentionally introduced
+df1.merge(df2, on='__', validate='one_to_one') #if there is error, that means it is not one to one merge 
+df3.merge(df3, on='___', validate='one_to_many') #if no error is raised that means it is one to mant merge
+
+#varifying concatenations
+.concat(verfify_integrity = False) #check whether the new concatenated index contains duplicates; default calue is False
+
+pd.concat([inv_feb, inv_mar], verify_integrity =True) #retrun calues when there is overlapping values 
+pd.concat([inv_feb, inv_mar], verify_integrity =False) #returns table with duplicated values
+
+------------------------------------------------------------------------------------
+#merge_ordered() method: 
+#realtionship between .merge() & .merge_ordered()
+#both can do on, left_on, right_on 
+#both can do left join, right join, inner join and outer join. .merge() default join is inner join, .merge_ordered() default join is outer
+#both support suffixes
+#calling .merge(): df1.merge(df2); calling .merge_ordered: pd.merge_ordered(df1, df2)
+import pandas as pd
+pd.merge_ordered(df1, df2, on='__', suffixes=('___', '____'))
+#forward fill: filling missing values with the previous value
+pd.merge_ordered(df1, df2, on='__', suffixes=('___', '____'), fill_method='ffill')
+#when to use merge_ordered() method:
+#- ordered data/time series
+#- filling in missing values
+
+
 
 
 
