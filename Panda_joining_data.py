@@ -90,6 +90,33 @@ pd.merge_ordered(df1, df2, on='__', suffixes=('___', '____'), fill_method='ffill
 #when to use merge_ordered() method:
 #- ordered data/time series
 #- filling in missing values
+-------------------------------------------------------------------------------------
+#merge_asof()
+#-similar as merge_order() left join 
+#-match on the neareast key column and not exact matches 
+#-merged on columns must be sorted
+# Merge value is the closest value in the right table that is still less than or equal to the table from the left table
+pd.merge_asof(df1, df2, on='date_time', suffixes=('_ ___', '_ ____'))
+pd.merge_asof(df1, df2, on='date_time', suffixes=('_ ___', '_ ____'), direction='forward') #set the nearest row in the right table as forward/backwrd/nearest
+#When to use it
+# - DAta sampled from a process 
+# - developing a training set (no data leakage)
+
+---------------------------------------------------------------------------------------
+#select data: .query()
+#input string used to determine what rows are returned 
+#input string similar to statement after WHERE clause in SQL statement
+df.query('___ and ____' )
+df.query('___ or ____')
+stock_long.query('stock =="disney" or (stock=="nike" and close<90)')
+
+-----------------------------------------------------------------------------------------
+#reshape data: .melt(): make a computer-friendly format
+social_fin_tall=socail_fin.melt(id_vars=['financial', 'company']) #id-vars are the columns you dont want to change
+social_fin_tall=socail_fin.melt(id_vars=['financial', 'company'], value_vars=['2018', '2017']) #value_vars to unpivot columns
+social_fin_tall=socail_fin.melt(id_vars=['financial', 'company'], value_vars=['2018', '2017'], var_name=['year'], value_name='dollars') #rename columns 
+
+
 
 
 
