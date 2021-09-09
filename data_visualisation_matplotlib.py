@@ -4,3 +4,13 @@ plt.show()
 
 ax.plot(seattle_weather["MONTH", seattle_weather["MLY-TAVG-NORMAL"])
 plt.show()
+
+#Example
+fig, ax = plt.subplots()
+ax.plot(seattle_weather["MONTH"], seattle_weather["MLY-TAVG-NORMAL"])
+ax.plot(austin_weather["MONTH"], austin_weather["MLY-TAVG-NORMAL"])
+plt.show()
+
+#Customise your plot                        
+                        
+                        
