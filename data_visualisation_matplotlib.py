@@ -74,7 +74,7 @@ fig, ax = plot.subplots()
 plot_timeseries(ax, climate_change.index, climate_chnage['co2'], 'blue', 'Time', 'CO2 (ppm)')
 
 #Annotating time-series data
-ax2.annotate(">1 degree", xy =(pd.TimeStamp("2015-10-06"), 1), xytext=(pd.TimeStamp('2008-10-06'), -0.2), arrowprops = {"arrowstyle" : "->1", "color": "gray"})
+ax2.annotate(">1 degree", xy =(pd.TimeStamp("2015-10-06"), 1), xytext=(pd.TimeStamp('2008-10-06'), -0.2), arrowprops = {"arrowstyle" : "->", "color": "gray"})
                         
                         
                         
