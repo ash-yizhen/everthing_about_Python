@@ -1,3 +1,8 @@
+#BAr chart shows the categorical data 
+#Histgram shows the distribution of the data
+#Error bars indicates the dsitribution of the data in one number, such as the standard deviation of the values
+#Box plot shows the standard deviation and outliers
+
 import matplotlib.pyplot as plt 
 fig, ax = plt.subplots() #fig object is container that holds everything you see on page; ax is part of the page hold the data
 plt.show()
@@ -76,5 +81,28 @@ plot_timeseries(ax, climate_change.index, climate_chnage['co2'], 'blue', 'Time',
 #Annotating time-series data
 ax2.annotate(">1 degree", xy =(pd.TimeStamp("2015-10-06"), 1), xytext=(pd.TimeStamp('2008-10-06'), -0.2), arrowprops = {"arrowstyle" : "->", "color": "gray"})
                         
+-----------------------------------------------------------
+#Quantative comparsion: bar charts
                         
+fig,ax = plt.subplots
+ax.bar(medals.index, medals["Gold"], label="Gold")
+ax.bar(madels.index, medals["Silver"], bottom=medals["Gold"], label="Silver") 
+ax.bar(madels.index, medals["Bronze"], bottom=medals["Gold"] + meadls["Silver"], label="Bronze")
+ax.set_xticklabels(medals.index, rotation = 90)                   #roate x-axis label to be able to display completely
+ax.set_ylabel("Number of medals")                            
+ax.legend()                                                       #display different colors for different medals
+plt.show()
                         
+ax.hist(men_rowing["Height], label = "Rowing", bins=[150, 160. 170, 180, 190, 200. 210], histtype="step")
+ax.hist(men_gymnastic["Height], label = "Gymnastics", bins=[150, 160. 170, 180, 190, 200. 210], histtype="step")   # histtype = "step" to get rid of the innerline to make it look like steos
+ax.set_xlabel("Height (cm)")                 
+ax.set_ylabel("# of observations")
+ax.legend()
+plt.show()
+                      
+fig, ax =plt.subplots()
+ax.boxlot([mens_rowing["Height"], mens_gymnastics["Height"]])
+ax.set_xticklabels(["Rowing", "Gymnastics"])
+ ax.set_ylabel("Height (cm)")
+plt.show()
+ 
