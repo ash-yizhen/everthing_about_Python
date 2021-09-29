@@ -138,6 +138,9 @@ FROM courses;
 
 -----------------------------------------------------------------------
 GROUP BY and HAVING 
+-- GROUP BY: splits the data up into combinations of one or more vcalues
+-- WHERE: filters on row values 
+-- HAVING: appears agter the GROUP BY clause and filters on groups or aggregates (to be used after GROUP BY)
 
 SELECT 
   SUM(demand_loss_mw) AS lost_demand
@@ -146,7 +149,10 @@ FROM grid
 WHERE 
   description LIKE '%storm'
   AND demand_loss_mw IS NOT NULL
-GROUP BY description;             #order based on description collumn
+GROUP BY description             --order based on description collumn
+HAVING SUM(demand_loss_mw) > 1000; 
+
+
 
 
 
