@@ -47,6 +47,17 @@ WHERE billing_state IS NULL;
 
 WHERE billing_state IS NOT NULL;
 
+-- Substituting missing data with a specific value using ISNULL 
+SELECT GDP, Country,
+ISNULL(Country, 'Unknown') AS NewCountry                -- Repalce NULL value from Country collumn to Unknown and created a new collumn as NewCountry
+FROM EconomicIndicators
+
+--Substituting NULL values using COALESCE
+-- COALESCE returns the first non-missing value
+SELECT TradeGDPPercent, ImportGoodPercent
+COALESCE(TradeGDPPercent, ImportGoodPercent, 'N/A') AS NewPercecnt. #if both columns have NULL values then return N/A
+FROM EconomisIndicators
+
 -------------------------------------------------------
 AND OR command and wrappong conditions
 SELECT song 
