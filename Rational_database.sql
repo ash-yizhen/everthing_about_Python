@@ -41,6 +41,10 @@ ALTER TABLE students
 ALTER COLUMN home_phone
 SET NOT NULL; 
 
+--ALTER PRIMARY KEY
+ALTER TABLE table_name
+ADD CONSTRAINT some_name PRIMARY KEY (column name)
+
 ALTER TABLE students
 ALTER COLUMN 
 DROP NOT NULL; 
@@ -92,6 +96,60 @@ clumn_name UNIQUE
 
 ALTER TABLE table_name
 ADD CONSTRAINT some_name UNIQUE (column_name); 
+
+---------------------------------------------------------------------------------
+-- Key and Superkeys
+-- Primary key: every table should have primary key, choosen from candidate key
+CREATE TABLE products (
+  product_no integer UNIQUE NOT NULL, 
+  name text, 
+  proce numeric
+);
+
+CREATE TABLE products (
+  product_no integer PRIMARY KEY, 
+  name text, 
+  price numeric
+);
+
+CREATE TABLE example (
+  a integer,
+  b integer,
+  c integer,
+  PRIMARY KEY (a,c)
+);
+
+
+-- Surrogate key: artificial primary key
+-- Primary should never change throughout the time.
+ALTER TABLE cars 
+ADD COLUMN id serial PRIMARY KEY;
+INSERT INTO cars 
+Values ('Volkswagen', 'Blitz', 'black')
+
+ALTER TABLE table_name
+ADD COLUMN column_c varchar(256)
+
+UPDATE table_name
+SET column_c = CONCAT(column_a, column_b)
+ALTER TABLE table_name
+ADD CONSTRAINT pk PRIMARY KEY (column c);
+
+----------------------------------------------------------------
+--Foreign keys
+-- A foreign key points to the primary key of another table
+-- domain of foreign key must be euqal to domain of primary key
+--- duplicates are allowed and foreign key is not actual key 
+ALTER TABLE a 
+ADD CONSTRAINT a_fkey FOREIGN KEY (b_id) REFERENCE b (id); 
+
+--HOW TO implement N:M-relationship
+-- CRETAE A TABLE 
+-- ADD FOREIGN KEYS FOR EVERY CONNECTED TABLE 
+-- ADD ADDTIONAL ATTRIBUTES 
+
+--REFERENCETIAL INTEGRITY 
+-- A record in table A can not reference to record in table b that not exist
 
 
 
